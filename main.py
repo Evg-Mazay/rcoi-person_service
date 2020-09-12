@@ -144,7 +144,7 @@ def update_person(person_id: Any):
 
 if __name__ == '__main__':
     database.create_schema()
-    app.run("0.0.0.0", 7777)  # дев-сервер (думаю, ради лабы поднимать wsgi нецелесообразно)
+    app.run("0.0.0.0", 80)  # дев-сервер (думаю, ради лабы поднимать wsgi нецелесообразно)
 
 
 
