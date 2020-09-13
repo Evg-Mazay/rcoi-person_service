@@ -6,8 +6,11 @@ from sqlalchemy.orm import Session as ORMSession
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-engine = create_engine(os.environ.get('DATABASE_URL'))
-
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if not DATABASE_URL:
+    print("USING TEMP DB, не задан $DATABASE_URL")
+    DATABASE_URL = "sqlite://temp.db"
+engine = create_engine(DATABASE_URL)
 
 def create_schema():
     Base.metadata.create_all(engine, checkfirst=True)

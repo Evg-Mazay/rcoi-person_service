@@ -145,7 +145,11 @@ def update_person(person_id: Any):
 
 if __name__ == '__main__':
     database.create_schema()
-    app.run("0.0.0.0", os.environ.get("PORT"))  # дев-сервер (думаю, ради лабы поднимать wsgi нецелесообразно)
+    PORT = os.environ.get("PORT")
+    if not PORT:
+        print("USING DEFAULT PORT 7777, не задан $PORT")
+        PORT = 7777
+    app.run("0.0.0.0", PORT)  # дев-сервер (думаю, ради лабы поднимать wsgi нецелесообразно)
 
 
 

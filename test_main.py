@@ -26,7 +26,7 @@ no_name_error_response = {
 @pytest.fixture
 def client():
     app.config['TESTING'] = True
-    database.engine = create_engine(f"sqlite:///")
+    database.engine = create_engine("sqlite:///")
 
     with app.test_client() as client:
         database.create_schema()
