@@ -1,4 +1,5 @@
 from typing import Dict, Any, Optional
+import os
 
 from flask import Flask, jsonify, request
 from sqlalchemy import Column, Integer, Text
@@ -144,7 +145,7 @@ def update_person(person_id: Any):
 
 if __name__ == '__main__':
     database.create_schema()
-    app.run("0.0.0.0", 80)  # дев-сервер (думаю, ради лабы поднимать wsgi нецелесообразно)
+    app.run("0.0.0.0", os.environ.get("PORT"))  # дев-сервер (думаю, ради лабы поднимать wsgi нецелесообразно)
 
 
 
