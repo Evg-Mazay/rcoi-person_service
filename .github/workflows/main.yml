@@ -40,6 +40,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: Romanow/person-service-test
+      - uses: Romanow/person-service-test@master
         with:
           targetUrl: "https://rcoi-1.herokuapp.com"
