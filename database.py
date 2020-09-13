@@ -1,10 +1,12 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import Session as ORMSession
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-engine = create_engine('sqlite:///temp.db')
+engine = create_engine(os.environ.get('DATABASE_URL'))
 
 
 def create_schema():
