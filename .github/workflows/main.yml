@@ -35,3 +35,11 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "rcoi-1"
           heroku_email: "evgenij997@yandex.ru"
+
+  romanow_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: Romanow/person-service-test
+        with:
+          targetUrl: "https://rcoi-1.herokuapp.com"
